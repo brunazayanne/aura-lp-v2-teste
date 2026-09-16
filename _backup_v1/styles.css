@@ -1,0 +1,715 @@
+/* =========================================================
+   AURA CREATORS CLUB — LP
+   Paleta, tipografia e espaçamentos ajustados a partir dos
+   specs exatos exportados do Figma (dev mode), frames mobile
+   (412px) e desktop (1440px).
+   ========================================================= */
+
+:root {
+  --gold: #ac8a53;        /* títulos, CTA, destaque */
+  --brown: #655742;       /* texto de corpo */
+  --cream: #eee5da;       /* fundo do hero (uso exclusivo) */
+  --tan: #e6dac7;         /* fundo seções de destaque, badges */
+  --offwhite: #f4f0eb;    /* fundo das demais seções e do footer */
+  --white: #ffffff;
+  --placeholder-gray: #dedede;
+  --radius: 20px;
+  --radius-sm: 9px;
+  --max-width: 420px;          /* referência mobile do Figma (412px) */
+  --max-width-desktop: 1140px; /* referência desktop do Figma (1440px, gutter 150px) */
+  --gutter-desktop: 150px;
+  --font: 'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--brown);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+picture { display: contents; } /* evita que o wrapper <picture> quebre flex/position:absolute do <img> interno */
+
+h1, h2, h3 {
+  font-weight: 700;
+  color: var(--gold);
+  margin: 0 0 12px;
+}
+
+h1 { font-size: 28px; line-height: 1.25; text-align: center; }
+h2 { font-size: 20px; line-height: 25px; }
+h3 { font-size: 18px; line-height: 23px; }
+
+/* heading de intro ("O que é o Aura Creators Club?") — tamanho fixo, não escala no desktop */
+h2.heading-intro { font-size: 32px; line-height: 40px; }
+
+p { font-size: 12px; line-height: 15px; margin: 0 0 14px; }
+
+.center { text-align: center; }
+
+a { color: inherit; }
+
+/* ---------- LAYOUT SHELL ---------- */
+
+.section {
+  padding: 40px 20px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  position: relative;
+}
+
+.section--white  { background: var(--white); }
+.section--cream  { background: var(--offwhite); }
+.section--tan    { background: var(--tan); }
+
+/* full-bleed background on sections that need it */
+.section--cream, .section--tan {
+  max-width: none;
+  padding: 40px 0;
+}
+.section--cream > *, .section--tan > * {
+  max-width: calc(var(--max-width) - 40px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- HEADER ---------- */
+
+.site-header {
+  height: 73px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: inset 0 -1px 4px -1px rgba(0,0,0,0.15);
+  background: var(--white);
+  position: relative;
+  z-index: 10;
+}
+.header-logo { height: 36px; width: auto; }
+.header-brilhos { height: 8px; width: auto; }
+
+/* ---------- BOTÕES ---------- */
+
+.btn-primary {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--white);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 12px;
+  text-align: center;
+  border-radius: var(--radius-sm);
+  padding: 12px 20px;
+  width: 100%;
+  max-width: 372px;
+}
+
+.btn-outline {
+  display: inline-block;
+  background: transparent;
+  color: var(--gold);
+  border: 1.5px solid var(--gold);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 12px;
+  text-align: center;
+  border-radius: var(--radius-sm);
+  padding: 11px 20px;
+}
+
+/* ---------- STICKY CTA (mobile) ---------- */
+
+.sticky-cta {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--white);
+  box-shadow: inset 0 1px 4px 0 rgba(0,0,0,0.15);
+  padding: 26px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-sticky {
+  max-width: 372px;
+  height: 36px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---------- SUBNAV (desktop) ---------- */
+
+.subnav {
+  display: none; /* aparece só a partir do breakpoint desktop */
+}
+
+/* ---------- HERO ---------- */
+
+.hero {
+  background: var(--cream);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 48px;
+}
+
+.hero-mandala {
+  position: absolute;
+  top: -60px;
+  left: -20%;
+  width: 140%;
+  opacity: 0.6;
+  z-index: 0;
+}
+
+.hero-brilhos {
+  position: absolute;
+  top: 250px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  z-index: 1;
+}
+
+.hero-text {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  max-width: 280px;
+  margin: 0 auto 16px;
+}
+
+.hero-sub {
+  max-width: 320px;
+  margin: 0 auto 24px;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.hero-cta {
+  display: none; /* no mobile o CTA vive na sticky bar */
+}
+
+.hero-photo {
+  position: relative;
+  z-index: 2;
+  border-radius: var(--radius);
+  width: calc(100% - 40px);
+  max-width: 373px;
+  margin: 0 auto;
+}
+
+/* ---------- EYEBROW / TAG ---------- */
+
+.eyebrow {
+  display: inline-block;
+  background: var(--tan);
+  color: var(--gold);
+  font-weight: 800;
+  font-size: 12px;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  padding: 9px 14px;
+  margin-bottom: 20px;
+}
+
+.eyebrow--spaced { margin-top: 32px; }
+
+.lead { font-size: 14px; line-height: 18px; }
+
+.rounded-photo {
+  border-radius: var(--radius);
+  width: 100%;
+  object-fit: cover;
+  margin: 16px 0 8px;
+}
+
+.rounded-photo--tall { height: 245px; object-fit: cover; }
+
+/* imagem full-bleed (edge-to-edge, sem cantos arredondados) */
+.photo-bleed {
+  border-radius: 0;
+  object-fit: cover;
+  width: 100vw;
+  max-width: 100vw;
+}
+
+/* ---------- ROW (texto + imagem, reaproveitado em várias seções) ---------- */
+
+.row {
+  display: flex;
+  flex-direction: column;
+}
+
+.row-clube { align-items: stretch; }
+
+.row-media { margin: 16px 0 8px; }
+
+/* o bleed precisa de seletor mais específico que .row-media, senão o
+   shorthand "margin: 16px 0 8px" zera margin-left/right por cascata.
+   Referência: dentro de .section--cream, a largura útil no mobile é
+   380px (420px - 40px do padding do container), então metade = 190px. */
+.row-clube .photo-bleed {
+  margin: 0 calc(-50vw + 190px) 8px;
+}
+
+/* decoração da seção "O que é o clube?" — só no desktop */
+.deco-clube { display: none; }
+
+/* ---------- STEP CARDS (como participar) ---------- */
+
+.step-row { display: block; }
+
+.step-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  text-align: center;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 12px rgba(101, 87, 66, 0.06);
+}
+
+.step-icon { width: 44px; height: 44px; margin: 0 auto 16px; object-fit: contain; }
+
+.step-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: var(--tan);
+  color: var(--gold);
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.step-card h3 { margin-bottom: 8px; font-size: 18px; line-height: 23px; }
+.step-card p { margin-bottom: 0; }
+
+/* ---------- SEÇÃO "COMO FUNCIONA / QUANDO APROVADA" ----------
+   No Figma essa foto (foto-jade-secao5.jpg) é o fundo full-bleed de toda a
+   seção, com os dois info-cards flutuando por cima dela (não lado a lado).
+   Confirmado inspecionando os frames Desktop (node 97:123, 1440×719) e
+   Mobile (node 214:271, 418×1101) no arquivo do Figma. */
+
+.section--requisitos {
+  max-width: none;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  aspect-ratio: 412 / 1101; /* proporção exata do recorte mobile enviado */
+  min-height: 620px; /* fallback caso aspect-ratio não seja suportado */
+}
+
+.requisitos-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.section--requisitos .info-col {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 32px 20px;
+}
+
+.section--requisitos .info-card { margin-bottom: 16px; }
+.section--requisitos .info-col .info-card:last-child { margin-bottom: 0; }
+
+/* ---------- INFO CARDS ---------- */
+
+.info-card {
+  background: var(--offwhite);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  margin-bottom: 20px;
+}
+
+.info-card h3 {
+  color: var(--gold);
+  font-size: 20px;
+  line-height: 25px;
+}
+
+.check-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+}
+.check-list li { margin-bottom: 14px; }
+.check-list li:last-child { margin-bottom: 0; }
+
+.footnote {
+  font-size: 12px;
+  margin-top: 14px;
+  margin-bottom: 0;
+}
+
+/* ---------- BENEFIT CARDS ---------- */
+
+.benefit-row { display: block; }
+
+.benefit-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 32px 20px;
+  text-align: center;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 12px rgba(101, 87, 66, 0.06);
+}
+
+.benefit-icon { width: 48px; height: 48px; margin: 0 auto 16px; object-fit: contain; }
+
+.benefit-card h3 {
+  text-transform: uppercase;
+  font-size: 16px;
+  line-height: 20px;
+}
+.benefit-card p { margin-bottom: 0; }
+
+/* ---------- GALLERY ---------- */
+
+.gallery-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gallery-placeholder {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  flex: 1;
+  scroll-behavior: smooth;
+}
+
+.gallery-item {
+  flex: 0 0 200px;
+  height: 260px;
+  background: var(--placeholder-gray);
+  border-radius: var(--radius);
+  object-fit: cover;
+}
+
+.gallery-arrow {
+  display: none; /* setas só no desktop, mobile usa scroll por toque */
+}
+
+.placeholder-note {
+  font-size: 11px;
+  font-style: italic;
+  opacity: 0.7;
+  text-align: center;
+}
+
+/* ---------- FAQ ACCORDION ---------- */
+
+.accordion { margin-top: 12px; }
+
+.accordion-item {
+  width: 100%;
+  background: none;
+  border: none;
+  border-top: 1px solid var(--tan);
+  padding: 16px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--brown);
+  text-align: left;
+  cursor: pointer;
+}
+
+.accordion-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 24px;
+  border-radius: 22px;
+  background: var(--tan);
+}
+
+.accordion-icon img {
+  width: 12px;
+  height: auto;
+  transition: transform 0.2s ease;
+}
+
+.accordion-item[aria-expanded="true"] .accordion-icon img {
+  transform: rotate(180deg);
+}
+
+.accordion-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease;
+}
+
+.accordion-panel p { padding: 0 0 16px; margin: 0; }
+
+/* ---------- CTA FINAL ---------- */
+
+.cta-final { text-align: center; padding-top: 56px; }
+
+.row-cta-final {
+  display: flex;
+  flex-direction: column;
+}
+
+.cta-top { order: 1; }
+.cta-photo { order: 2; }
+.cta-button { order: 3; }
+
+.mandala-small { width: 48px; margin: 0 auto 20px; }
+
+.btn-cta-final { margin: 20px auto; }
+
+.reassurance-row {
+  order: 4;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.reassurance-pill {
+  background: var(--offwhite);
+  color: var(--brown);
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 20px;
+  padding: 6px 12px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 32px;
+  font-size: 12px;
+  text-decoration: underline;
+}
+
+.footer-links a { text-decoration: underline; }
+
+/* ---------- FOOTER ---------- */
+
+.site-footer {
+  background: var(--offwhite);
+  text-align: center;
+  padding: 24px 20px 40px;
+  font-size: 12px;
+}
+
+.footer-logo { display: inline-block; height: 20px; margin: 8px auto 0; }
+
+/* =========================================================
+   DESKTOP (>=900px)
+   Specs exatos do frame desktop (1440px) do Figma.
+   ========================================================= */
+
+@media (min-width: 900px) {
+
+  .section,
+  .section--cream > *,
+  .section--tan > * {
+    max-width: var(--max-width-desktop);
+  }
+
+  h1 { font-size: 40px; text-align: left; }
+  h2 { font-size: 32px; line-height: 40px; }
+  h3 { font-size: 24px; line-height: 30px; }
+  p { font-size: 14px; line-height: 18px; }
+  .lead { font-size: 20px; line-height: 25px; }
+
+  /* heading de intro já é 32/40 em ambos os breakpoints — sem alteração aqui */
+
+  /* cards mantêm título com tamanho fixo (não escalam com o h3 genérico) */
+  .step-card h3,
+  .benefit-card h3 {
+    font-size: 18px;
+    line-height: 23px;
+  }
+  .benefit-card h3 { font-size: 16px; line-height: 20px; }
+
+  .info-card h3 { font-size: 24px; line-height: 30px; }
+
+  .site-header { align-items: flex-start; justify-content: center; padding-left: var(--gutter-desktop); }
+  .header-logo { height: 44px; }
+
+  /* sticky bar do mobile some, subnav de desktop assume */
+  .sticky-cta { display: none; }
+
+  .subnav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 16px;
+    background: var(--white);
+    box-shadow: inset 0 -1px 4px -1px rgba(0,0,0,0.1);
+    padding: 16px var(--gutter-desktop);
+    position: sticky;
+    top: 0;
+    z-index: 15;
+  }
+  .subnav .btn-primary,
+  .subnav .btn-outline {
+    width: auto;
+    font-size: 14px;
+    padding: 20px 32px;
+  }
+
+  /* hero */
+  .hero {
+    max-width: none; /* a seção precisa ocupar a viewport inteira; o gutter
+       já é o padding abaixo — sem isso, o max-width de 1140px do .section
+       genérico soma com este padding e o conteúdo fica espremido/desalinhado
+       no desktop (bug reportado: "versão web desajustada") */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 64px;
+    text-align: left;
+    padding: 100px var(--gutter-desktop);
+  }
+  .hero-text { flex: 1; max-width: 480px; }
+  .hero h1 { margin: 0 0 20px; max-width: none; }
+  .hero-sub { margin: 0 0 28px; max-width: none; font-size: 14px; line-height: 18px; }
+  .hero-cta { display: inline-block; width: auto; font-size: 14px; padding: 20px 32px; }
+  .hero-photo {
+    flex: 1;
+    max-width: 427px;
+    width: 100%;
+    border-radius: var(--radius);
+  }
+  .hero-mandala { top: -120px; left: 40%; width: 70%; }
+  .hero-brilhos { top: 40px; left: 62%; width: 90px; }
+
+  /* rows texto + imagem */
+  .row {
+    flex-direction: row;
+    align-items: center;
+    gap: 56px;
+    margin-bottom: 24px;
+  }
+  .row-media, .row-text { flex: 1; min-width: 0; }
+  .row-media { margin: 0; }
+  .row--flip .row-media { order: -1; }
+
+  .deco-clube {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    width: 140px;
+    opacity: 0.7;
+    z-index: 0;
+  }
+  .row-clube { position: relative; z-index: 1; align-items: stretch; }
+  .row-clube .photo-bleed {
+    width: auto;
+    max-width: none;
+    flex: 1;
+    height: 100%;
+    align-self: stretch;
+    /* 50% aqui precisa ser metade da largura da seção (1140px), não da
+       própria caixa do flex item (que é só ~metade disso) — senão o
+       cálculo de bleed fica errado e a imagem não chega na borda. */
+    margin-left: calc(-50vw + (var(--max-width-desktop) / 2));
+    margin-right: 0;
+  }
+
+  /* 3 passos */
+  .step-row {
+    display: flex;
+    gap: 24px;
+  }
+  .step-row .step-card { flex: 1; margin-bottom: 0; }
+
+  /* como funciona / quando aprovada — foto full-bleed com cards sobrepostos à esquerda */
+  .section--requisitos {
+    align-items: center;
+    aspect-ratio: 1440 / 719; /* proporção exata do recorte desktop enviado */
+    min-height: 719px;
+  }
+  .section--requisitos .info-col {
+    width: auto;
+    max-width: 420px;
+    padding: 0 0 0 var(--gutter-desktop);
+  }
+  .section--requisitos .info-card { margin-bottom: 20px; }
+
+  /* benefícios */
+  .benefit-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .benefit-row .benefit-card { margin-bottom: 0; }
+
+  /* galeria */
+  .gallery-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    border-radius: 50%;
+    border: 1.5px solid var(--gold);
+    background: var(--white);
+    color: var(--gold);
+    font-size: 20px;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  /* FAQ */
+  .accordion-item { font-size: 16px; }
+
+  /* CTA final */
+  .cta-final { text-align: left; padding: 80px var(--gutter-desktop); }
+  .row-cta-final {
+    flex-direction: row;
+    align-items: center;
+    gap: 56px;
+    flex-wrap: wrap;
+  }
+  .cta-photo { order: 1; flex: 1; min-width: 0; height: 460px; object-fit: cover; margin: 0; }
+  .cta-top { order: 2; flex: 1; }
+  .cta-top .center, .cta-top h2, .cta-top p { text-align: left; }
+  .mandala-small { margin: 0 0 20px; }
+  .cta-button { order: 3; flex-basis: 100%; width: auto; margin-top: 8px; font-size: 14px; padding: 20px 32px; }
+  .btn-cta-final { margin: 0; }
+  .reassurance-row { order: 4; flex-basis: 100%; justify-content: flex-start; margin-top: 16px; }
+
+  .footer-links { flex-direction: row; justify-content: flex-start; margin-top: 40px; font-size: 14px; }
+}

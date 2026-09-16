@@ -8,16 +8,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20260916-v3">
+<link rel="stylesheet" href="styles.css?v=20260915-v2">
 </head>
 <body>
 
 <!-- HEADER -->
 <header class="site-header">
   <img src="assets/logo-aura-beauty-lockup.png" alt="AURA Beauty" class="header-logo">
-  <a href="https://app.auracreatorsclub.com.br/signup/1715554360589x547839006181949440" class="btn-primary header-cta">
-    Quero me inscrever
-  </a>
 </header>
 
 <!-- STICKY CTA BAR (mobile) -->
@@ -29,26 +26,24 @@
 
 <main>
 
-  <!-- 1. HERO — vídeo imersivo, texto sobreposto -->
-  <section class="hero-video" id="topo">
-    <video class="hero-video-bg" autoplay muted loop playsinline poster="assets/ugc-5-poster.jpg">
-      <source src="assets/ugc-5.mp4" type="video/mp4">
-    </video>
-    <div class="hero-video-scrim" aria-hidden="true"></div>
-    <div class="hero-video-content">
-      <span class="badge">Inscrições abertas</span>
-      <h1>Seja parte do<br>AURA Creators Club</h1>
+  <!-- 1. HERO -->
+  <section class="section hero">
+    <img src="assets/mandala.svg" alt="" class="hero-mandala" aria-hidden="true">
+    <img src="assets/brilhos.svg" alt="" class="hero-brilhos" aria-hidden="true">
+    <div class="hero-text">
+      <h1>Seja parte do AURA Creators Club</h1>
       <p class="hero-sub">Jade Picon convida você a transformar sua influência em impacto real: liberdade criativa, experiências únicas e comissão de <strong>5% a 16% por venda</strong>.</p>
       <a href="https://app.auracreatorsclub.com.br/signup/1715554360589x547839006181949440" class="btn-primary hero-cta">
         Quero me inscrever no AURA Creators Club
       </a>
     </div>
-    <button type="button" class="scroll-cue" aria-label="Rolar para baixo" onclick="document.getElementById('comunidade').scrollIntoView({behavior:'smooth'})">
-      <span></span>
-    </button>
+    <picture>
+      <source media="(min-width: 900px)" srcset="assets/jade-picon-hero-cutout-desktop.png">
+      <img src="assets/jade-picon-hero-cutout-mobile.png" alt="Jade Picon" class="hero-photo">
+    </picture>
   </section>
 
-  <!-- SUBNAV (desktop, sticky) -->
+  <!-- SUBNAV (desktop) -->
   <div class="subnav">
     <a href="#quem-pode" class="btn-outline">Quem pode participar</a>
     <a href="#beneficios" class="btn-outline">Benefícios</a>
@@ -58,32 +53,7 @@
     </a>
   </div>
 
-  <!-- 2. COMUNIDADE + MANIFESTO -->
-  <section class="section section--white manifesto" id="comunidade">
-    <div class="eyebrow center">Nossa comunidade</div>
-    <h2 class="manifesto-headline center">Uma comunidade única de creators que fazem beleza com identidade</h2>
-    <p class="lead center">Criadoras de verdade, publicando do seu jeito, sendo remuneradas por isso. Se isso é a sua cara, você já sabe o que fazer.</p>
-
-    <div class="community-strip">
-      <button type="button" class="community-item reveal" data-video="assets/ugc-1.mp4" aria-label="Ver conteúdo de creator AURA">
-        <img src="assets/ugc-1-poster.jpg" alt="Conteúdo de creator AURA">
-      </button>
-      <button type="button" class="community-item reveal" data-video="assets/ugc-2.mp4" aria-label="Ver conteúdo de creator AURA">
-        <img src="assets/ugc-2-poster.jpg" alt="Conteúdo de creator AURA">
-      </button>
-      <button type="button" class="community-item reveal" data-video="assets/ugc-3.mp4" aria-label="Ver conteúdo de creator AURA">
-        <img src="assets/ugc-3-poster.jpg" alt="Conteúdo de creator AURA">
-      </button>
-      <button type="button" class="community-item reveal" data-video="assets/ugc-4.mp4" aria-label="Ver conteúdo de creator AURA">
-        <img src="assets/ugc-4-poster.jpg" alt="Conteúdo de creator AURA">
-      </button>
-      <button type="button" class="community-item reveal" data-video="assets/ugc-5.mp4" aria-label="Ver conteúdo de creator AURA">
-        <img src="assets/ugc-5-poster.jpg" alt="Conteúdo de creator AURA">
-      </button>
-    </div>
-  </section>
-
-  <!-- 3. QUEM PODE PARTICIPAR -->
+  <!-- 2. QUEM PODE PARTICIPAR (elegibilidade — sobe pra logo após o hero) -->
   <section class="section section--requisitos" id="quem-pode">
     <picture>
       <source media="(min-width: 900px)" srcset="assets/foto-jade-secao5-desktop.png">
@@ -102,68 +72,64 @@
     </div>
   </section>
 
-  <!-- 4. COMO FUNCIONA — tipografia grande, sem cards -->
+  <!-- 3. COMO FUNCIONA (4 passos, incluindo o pós-cadastro) -->
   <section class="section section--cream" id="como-funciona">
     <h2 class="center">Como funciona</h2>
     <p class="lead center">Do cadastro ao seu primeiro ganho — o caminho é simples.</p>
 
-    <div class="step-list">
-      <div class="step-row-item reveal">
-        <span class="step-num">01</span>
-        <div class="step-copy">
-          <h3>Inscreva-se</h3>
-          <p>Preencha seu perfil e junte-se ao clube. Leva poucos minutos.</p>
-        </div>
+    <div class="step-row">
+      <div class="step-card reveal">
+        <span class="step-num">1</span>
+        <h3>Inscreva-se</h3>
+        <p>Preencha seu perfil e junte-se ao clube. Leva poucos minutos.</p>
       </div>
-      <div class="step-row-item reveal">
-        <span class="step-num">02</span>
-        <div class="step-copy">
-          <h3>Aguarde a aprovação</h3>
-          <p>Nosso time analisa seu perfil e avisa o resultado.</p>
-        </div>
+      <div class="step-card reveal">
+        <span class="step-num">2</span>
+        <h3>Aguarde a aprovação</h3>
+        <p>Nosso time analisa seu perfil e avisa o resultado.</p>
       </div>
-      <div class="step-row-item reveal">
-        <span class="step-num">03</span>
-        <div class="step-copy">
-          <h3>Receba cupom e link</h3>
-          <p>Assim que aprovada, seu cupom exclusivo é liberado.</p>
-        </div>
+      <div class="step-card reveal">
+        <span class="step-num">3</span>
+        <h3>Receba cupom e link</h3>
+        <p>Assim que aprovada, seu cupom exclusivo é liberado.</p>
       </div>
-      <div class="step-row-item reveal">
-        <span class="step-num">04</span>
-        <div class="step-copy">
-          <h3>Crie e comece a ganhar</h3>
-          <p>Publique com liberdade e ganhe por cada venda.</p>
-        </div>
+      <div class="step-card reveal">
+        <span class="step-num">4</span>
+        <h3>Crie e comece a ganhar</h3>
+        <p>Publique com liberdade e ganhe por cada venda.</p>
       </div>
     </div>
   </section>
 
-  <!-- 5. BENEFÍCIOS — copy de campanha, sem ícone -->
+  <!-- 4. BENEFÍCIOS (unificado — fonte única sobre ganhos) -->
   <section class="section section--tan" id="beneficios">
     <h2 class="center">O que você ganha sendo parte do AURA Creators Club</h2>
 
-    <div class="perk-list">
-      <div class="perk-item reveal">
-        <h3>Ganhos reais.</h3>
+    <div class="benefit-row">
+      <div class="benefit-card reveal">
+        <img src="assets/icon-money-1.png" alt="" class="benefit-icon" aria-hidden="true">
+        <h3>Ganhos Reais</h3>
         <p>Cupom exclusivo + comissão de 5% a 16% por venda.</p>
       </div>
-      <div class="perk-item reveal">
-        <h3>Kits e lançamentos primeiro.</h3>
+      <div class="benefit-card reveal">
+        <img src="assets/icon-visibilidade.png" alt="" class="benefit-icon" aria-hidden="true">
+        <h3>Kits &amp; Produtos Exclusivos</h3>
         <p>Acesso antecipado a lançamentos e kits gratuitos.</p>
       </div>
-      <div class="perk-item reveal">
-        <h3>Experiências com a marca.</h3>
+      <div class="benefit-card reveal">
+        <img src="assets/icon-money-2.png" alt="" class="benefit-icon" aria-hidden="true">
+        <h3>Experiências com a Marca</h3>
         <p>Eventos, ativações com Jade e encontros ao longo do ano.</p>
       </div>
-      <div class="perk-item reveal">
-        <h3>Visibilidade crescente.</h3>
-        <p>Destaque nas redes e na comunidade AURA.</p>
+      <div class="benefit-card reveal">
+        <img src="assets/icon-money-3.png" alt="" class="benefit-icon" aria-hidden="true">
+        <h3>Visibilidade Crescente</h3>
+        <p>Destaque nas redes e comunidade AURA.</p>
       </div>
     </div>
   </section>
 
-  <!-- 6. QUEM SOMOS -->
+  <!-- 5. QUEM SOMOS (marca + clube, condensado numa seção só) -->
   <section class="section section--white" id="quem-somos">
     <div class="row row-marca">
       <div class="row-text">
@@ -176,33 +142,24 @@
     </div>
   </section>
 
-  <!-- 7. GALERIA COMPLETA — clique pra reproduzir o vídeo real -->
+  <!-- 6. GALERIA DE CREATORS -->
   <section class="section section--cream" id="galeria">
     <h2 class="center">O que nossas creators estão criando:</h2>
     <div class="gallery-wrap">
       <button type="button" class="gallery-arrow gallery-arrow--prev" aria-label="Ver anteriores">‹</button>
       <div class="gallery-placeholder">
-        <button type="button" class="gallery-item-btn" data-video="assets/ugc-1.mp4">
-          <img class="gallery-item" src="assets/ugc-1-poster.jpg" alt="Conteúdo de creator AURA">
-        </button>
-        <button type="button" class="gallery-item-btn" data-video="assets/ugc-2.mp4">
-          <img class="gallery-item" src="assets/ugc-2-poster.jpg" alt="Conteúdo de creator AURA">
-        </button>
-        <button type="button" class="gallery-item-btn" data-video="assets/ugc-3.mp4">
-          <img class="gallery-item" src="assets/ugc-3-poster.jpg" alt="Conteúdo de creator AURA">
-        </button>
-        <button type="button" class="gallery-item-btn" data-video="assets/ugc-4.mp4">
-          <img class="gallery-item" src="assets/ugc-4-poster.jpg" alt="Conteúdo de creator AURA">
-        </button>
-        <button type="button" class="gallery-item-btn" data-video="assets/ugc-5.mp4">
-          <img class="gallery-item" src="assets/ugc-5-poster.jpg" alt="Conteúdo de creator AURA">
-        </button>
+        <img class="gallery-item" src="assets/ugc-1-poster.jpg" alt="Conteúdo de creator AURA">
+        <img class="gallery-item" src="assets/ugc-2-poster.jpg" alt="Conteúdo de creator AURA">
+        <img class="gallery-item" src="assets/ugc-3-poster.jpg" alt="Conteúdo de creator AURA">
+        <img class="gallery-item" src="assets/ugc-4-poster.jpg" alt="Conteúdo de creator AURA">
+        <img class="gallery-item" src="assets/ugc-5-poster.jpg" alt="Conteúdo de creator AURA">
       </div>
+      <p class="placeholder-note">Nesta versão de teste os vídeos foram substituídos pelas capas (arquivos .mp4 muito pesados pra este preview) — na versão final os vídeos reais voltam.</p>
       <button type="button" class="gallery-arrow gallery-arrow--next" aria-label="Ver próximos">›</button>
     </div>
   </section>
 
-  <!-- 8. FAQ -->
+  <!-- 7. FAQ -->
   <section class="section section--cream" id="faq">
     <div class="eyebrow">FAQ</div>
     <h2>Perguntas que você pode ter:</h2>
@@ -240,7 +197,7 @@
     </div>
   </section>
 
-  <!-- 9. CTA FINAL -->
+  <!-- 8. CTA FINAL -->
   <section class="section section--tan cta-final" id="cta-final">
     <div class="row-cta-final">
       <img src="assets/foto-jade-cta-final.jpg" alt="Jade Picon" class="rounded-photo cta-photo">
@@ -275,28 +232,14 @@
   <img src="assets/logo-aura-2.svg" alt="AURA Creators Club" class="footer-logo">
 </footer>
 
-<!-- MODAL DE VÍDEO (comunidade + galeria) -->
-<div class="video-modal" id="video-modal" hidden>
-  <div class="video-modal-inner">
-    <button type="button" class="video-modal-close" aria-label="Fechar vídeo">×</button>
-    <video id="video-modal-player" controls playsinline></video>
-  </div>
-</div>
-
-<script src="script.js?v=20260916-v3"></script>
+<script src="script.js?v=20260915-v2"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>
   if (window.gsap && window.ScrollTrigger) {
     gsap.registerPlugin(ScrollTrigger);
 
-    gsap.utils.toArray('.community-item.reveal').forEach((el) => {
-      gsap.fromTo(el, { opacity: 0, y: 20 }, {
-        opacity: 1, y: 0, duration: 0.5, ease: 'power2.out',
-        scrollTrigger: { trigger: el, start: 'top 90%' }
-      });
-    });
-
+    // Reveal genérico para cards de elegibilidade
     gsap.utils.toArray('.info-card.reveal').forEach((el) => {
       gsap.fromTo(el, { opacity: 0, y: 24 }, {
         opacity: 1, y: 0, duration: 0.6, ease: 'power2.out',
@@ -304,14 +247,16 @@
       });
     });
 
-    gsap.fromTo('.step-row-item.reveal', { opacity: 0, y: 24 }, {
+    // Stagger dos 4 passos de "Como funciona"
+    gsap.fromTo('.step-card.reveal', { opacity: 0, y: 24 }, {
       opacity: 1, y: 0, duration: 0.5, ease: 'power2.out', stagger: 0.12,
-      scrollTrigger: { trigger: '#como-funciona .step-list', start: 'top 80%' }
+      scrollTrigger: { trigger: '#como-funciona .step-row', start: 'top 80%' }
     });
 
-    gsap.fromTo('.perk-item.reveal', { opacity: 0, y: 24 }, {
+    // Stagger dos cards de benefícios
+    gsap.fromTo('.benefit-card.reveal', { opacity: 0, y: 24 }, {
       opacity: 1, y: 0, duration: 0.5, ease: 'power2.out', stagger: 0.1,
-      scrollTrigger: { trigger: '#beneficios .perk-list', start: 'top 80%' }
+      scrollTrigger: { trigger: '#beneficios .benefit-row', start: 'top 80%' }
     });
   }
 </script>

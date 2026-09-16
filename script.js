@@ -34,12 +34,59 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (!track || !prev || !next) return;
 
-  var scrollStep = 212; // largura do item (200px) + gap (12px)
+  // largura do item + gap muda por breakpoint (ver styles.css .gallery-item-btn)
+  function getScrollStep() {
+    return window.innerWidth >= 900 ? 256 : 172; // 240+16 desktop / 160+12 mobile
+  }
 
   prev.addEventListener('click', function () {
-    track.scrollBy({ left: -scrollStep, behavior: 'smooth' });
+    track.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
   });
   next.addEventListener('click', function () {
-    track.scrollBy({ left: scrollStep, behavior: 'smooth' });
+    track.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
+  });
+});
+
+// Modal de vídeo — click-to-play para community-strip e galeria
+document.addEventListener('DOMContentLoaded', function () {
+  var modal = document.getElementById('video-modal');
+  var player = document.getElementById('video-modal-player');
+  var closeBtn = document.querySelector('.video-modal-close');
+  var triggers = document.querySelectorAll('[data-video]');
+
+  if (!modal || !player) return;
+
+  function openModal(src) {
+    player.src = src;
+    modal.hidden = false;
+    player.play().catch(function () {
+      /* autoplay com som pode ser bloqueado; usuário pode dar play manual */
+    });
+  }
+
+  function closeModal() {
+    player.pause();
+    player.removeAttribute('src');
+    player.load();
+    modal.hidden = true;
+  }
+
+  triggers.forEach(function (trigger) {
+    trigger.addEventListener('click', function () {
+      var src = trigger.getAttribute('data-video');
+      if (src) openModal(src);
+    });
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeModal);
+  }
+
+  modal.addEventListener('click', function (e) {
+    if (e.target === modal) closeModal();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !modal.hidden) closeModal();
   });
 });
