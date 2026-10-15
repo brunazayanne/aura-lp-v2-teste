@@ -1,0 +1,44 @@
+  :root{
+    --sand:#FBF7F2; --soft-blush:#ECDDC8; --terracota:#A35824; --golden:#BA975C; --dark-brown:#4C2317;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Sora',system-ui,sans-serif;background:var(--sand);color:var(--dark-brown);overflow-x:hidden;}
+  a{color:var(--golden);text-decoration:none;}
+  a:hover{color:var(--sand);}
+  @keyframes auraTicker{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+  .faq-answer{display:none;}
+  .faq-item.is-open .faq-answer{display:block;}
+  .faq-item.is-open .faq-sign{content:"–";}
+  @media (max-width:900px){
+    .aura-nav{padding:14px 24px !important;}
+    .aura-hero{padding:72px 24px 64px !important;}
+    .aura-hero-h1{font-size:32px !important;}
+    .aura-keydates-wrap{padding:0 24px !important;margin:-40px auto 0 !important;}
+    .aura-perks-wrap{padding:64px 24px 56px !important;}
+    .aura-perks-grid{grid-template-columns:repeat(2,1fr) !important;gap:16px !important;}
+    .aura-cases-wrap{padding:64px 24px !important;}
+    .aura-masterclass-card{left:24px !important;right:24px !important;max-width:none !important;padding:24px 22px !important;}
+    .aura-masterclass-img{height:420px !important;}
+    .aura-faq-wrap{padding:64px 24px !important;}
+    .aura-footer{padding:36px 24px !important;}
+    .aura-cadastro-inner{padding:64px 24px !important;}
+  }
+  @media (max-width:600px){
+    .aura-hero-br{display:none;}
+    .aura-nav{padding:12px 16px !important;}
+    .aura-nav-cta{padding:10px 16px !important;font-size:12px !important;}
+    .aura-hero{padding:56px 20px 48px !important;}
+    .aura-hero-h1{font-size:26px !important;}
+    .aura-keydates-wrap{padding:0 16px !important;margin:-32px auto 0 !important;}
+    .aura-keydates-grid{grid-template-columns:1fr !important;}
+    .aura-keydates-col-b{border-left:none !important;border-top:1px solid var(--sand) !important;}
+    .aura-perks-grid{grid-template-columns:1fr !important;}
+    .aura-perk-card{height:260px !important;}
+    .aura-cases-grid{grid-template-columns:1fr !important;}
+    .aura-case-card{height:360px !important;}
+    .aura-masterclass-img{height:320px !important;}
+    .aura-masterclass-card{bottom:20px !important;padding:20px 18px !important;}
+    .aura-cadastro-inner{padding:56px 24px !important;}
+    .aura-faq-wrap{padding:56px 24px !important;}
+    .aura-footer{padding:28px 20px !important;justify-content:center !important;text-align:center !important;}
+  }
